@@ -1,10 +1,12 @@
+package gestionZoo.entities;
+
 public class Zoo {
 
-    Animal[] animals;
-    String name, city;
-    final int nbrCages=25;
+    private Animal[] animals;
+    private String name, city;
+    private final int nbrCages=25;
 
-    int nbrAnimals;
+    private int nbrAnimals;
 
     public Zoo() {
     }
@@ -19,17 +21,19 @@ public class Zoo {
         System.out.println("Name: " + name + ", City: " + city + ", N° Cages/Animals: " + nbrCages);
     }
 
-    boolean addAnimal(Animal animal) {
+    public boolean addAnimal(Animal animal) {
         if (searchAnimal(animal) != -1)
             return false;
         if (nbrAnimals == nbrCages)
+            return false;
+        if (isZooFull(nbrAnimals))
             return false;
         animals[nbrAnimals] = animal;
         nbrAnimals++;
         return true;
     }
 
-    boolean removeAnimal(Animal animal) {
+    public boolean removeAnimal(Animal animal) {
         int indexAnimal = searchAnimal(animal);
         if (indexAnimal == -1)
             return false;
@@ -41,29 +45,29 @@ public class Zoo {
         return true;
     }
 
-    void displayAnimals() {
+    public void displayAnimals() {
         System.out.println("Liste des animaux de " + name + ":");
         for (int i = 0; i < nbrAnimals; i++) {
             System.out.println(animals[i]);
         }
     }
 
-    int searchAnimal(Animal animal) {
+    public int searchAnimal(Animal animal) {
         int index = -1;
         for (int i = 0; i < nbrAnimals; i++) {
-            if (animal.name == animals[i].name)
+            if (animal.getName() == animals[i].getName())
                 return i;
         }
         return index;
     }
 
-    boolean isZooFull(int nbrAnimals){
+    public boolean isZooFull(int nbrAnimals){
         if (nbrAnimals<this.nbrCages){
             return false;
         }else return true;
     }
 
-    static Zoo compareZoo(Zoo z1,Zoo z2){
+    public static Zoo compareZoo(Zoo z1, Zoo z2){
         if (z1.nbrAnimals>z2.nbrAnimals){
             return z1;
         }else return null;
@@ -73,6 +77,42 @@ public class Zoo {
     @Override
     public String toString() {
         return "Name: " + name + ", City: " + city + ", N° Cages/Animals: " + nbrCages;
+    }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public int getNbrAnimals() {
+        return nbrAnimals;
+    }
+
+    public void setNbrAnimals(int nbrAnimals) {
+        this.nbrAnimals = nbrAnimals;
     }
 }
 
