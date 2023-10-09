@@ -1,6 +1,7 @@
 package gestionZoo.main;
 
 import gestionZoo.entities.Animal;
+import gestionZoo.entities.Dolphin;
 import gestionZoo.entities.Zoo;
 
 public class ZooManagement {
@@ -36,12 +37,18 @@ public class ZooManagement {
         System.out.println(myZoo.removeAnimal(dog));
         myZoo.displayAnimals();
 
-        System.out.println("///////"+myZoo.isZooFull(myZoo.getNbrAnimals()));
-        Zoo ze = new Zoo("kjel","kjeflk");
-        System.out.println("*****"+Zoo.compareZoo(myZoo,ze));
+        System.out.println("///////" + myZoo.isZooFull(myZoo.getNbrAnimals()));
+        Zoo ze = new Zoo("kjel", "kjeflk");
+        System.out.println("*****" + Zoo.compareZoo(myZoo, ze));
+
+        System.out.println("---------------------------------------------------------------------------");
 
 
+        Dolphin d1 = new Dolphin("Dolphin", "D1", 2, true, "Atlantic", 2);
+
+        System.out.println(d1.toString());
 
     }
+
 
 }
