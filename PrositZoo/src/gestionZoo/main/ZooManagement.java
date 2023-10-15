@@ -1,8 +1,6 @@
 package gestionZoo.main;
 
-import gestionZoo.entities.Animal;
-import gestionZoo.entities.Dolphin;
-import gestionZoo.entities.Zoo;
+import gestionZoo.entities.*;
 
 public class ZooManagement {
 
@@ -47,6 +45,14 @@ public class ZooManagement {
         Dolphin d1 = new Dolphin("Dolphin", "D1", 2, true, "Atlantic", 2);
 
         System.out.println(d1.toString());
+
+        Aquatic a1 = new Aquatic("Aquatic", "A1", 2, true, "Atlantic");
+        Penguin p1 = new Penguin("Penguin", "P1", 2, true, 8, 2);
+
+        d1.swim();
+        a1.swim();
+        //p1.swim();
+
 
     }
 

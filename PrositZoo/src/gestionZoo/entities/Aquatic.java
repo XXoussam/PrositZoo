@@ -23,4 +23,8 @@ public non-sealed class Aquatic extends Animal{
         return super.toString() + "habitat: " + habitat;
     }
 
+    public void swim(){
+        System.out.println("the aquatic animal is swimming");
+    }
+
 }
