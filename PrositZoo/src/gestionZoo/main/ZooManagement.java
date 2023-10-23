@@ -2,6 +2,8 @@ package gestionZoo.main;
 
 import gestionZoo.entities.*;
 
+import java.util.Arrays;
+
 public class ZooManagement {
 
     public static void main(String[] args) {
@@ -46,13 +48,34 @@ public class ZooManagement {
 
         System.out.println(d1.toString());
 
-        Aquatic a1 = new Aquatic("Aquatic", "A1", 2, true, "Atlantic");
-        Penguin p1 = new Penguin("Penguin", "P1", 2, true, 8, 2);
+        Aquatic a1 = new Dolphin("Aquatic", "A1", 2, true, "Atlantic",45);
+        Penguin p1 = new Penguin("Penguin", "P1", 2, true, 8, 8);
 
         d1.swim();
         a1.swim();
         //p1.swim();
 
+        myZoo.addAquaticAnimal(a1);
+        System.out.println(Arrays.toString(myZoo.getAquaticAnimals()));
+
+        System.out.println("**********************************************************************");
+
+        Animal aa = new Animal("Canine", "Snoopy", 2, true);
+        Penguin pp = new Penguin("erloj", "zemrjezlk", 2, true, 8, 2);
+        myZoo.addAnimal(aa);
+        myZoo.addAnimal(pp);
+        myZoo.addAnimal(p1);
+        myZoo.addAnimal(d1);
+        System.out.println(Arrays.toString(myZoo.getAnimals()));
+
+        System.out.println( myZoo.maxPenguinSwimmingDepth());
+
+
+        System.out.println(myZoo.displayNumberOfAquaticsByType());
+
+        Aquatic aq1 = new Dolphin("Aquatic", "A1", 2, true, "Atlantic",45);
+        Aquatic aq2 = new Dolphin("Aquatic", "A1", 2, true, "Atlantic",45);
+        System.out.println(aq1.equals(aq1,aq2));
 
     }
 
