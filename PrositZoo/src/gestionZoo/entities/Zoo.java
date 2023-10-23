@@ -5,8 +5,8 @@ public class Zoo {
     private Animal[] animals;
     private String name, city;
     private final int nbrCages=25;
-
     private int nbrAnimals;
+    private Aquatic[] aquaticAnimals = new Aquatic[10];
 
     public Zoo() {
     }
@@ -73,6 +73,63 @@ public class Zoo {
         }else return null;
     }
 
+    public void addAquaticAnimal(Aquatic aquatic){
+        for (int i = 0; i < aquaticAnimals.length; i++) {
+            if (aquaticAnimals[i]==null){
+                aquaticAnimals[i]=aquatic;
+                break;
+            }
+        }
+    }
+
+    public float maxPenguinSwimmingDepth(){
+        Penguin[] tabP = new Penguin[25];
+        for (Animal an:animals) {
+            if (an instanceof Penguin){
+                for (int i = 0; i < tabP.length; i++) {
+                    if (tabP[i]==null){
+                        tabP[i]=(Penguin) an;
+                        break;
+                    }
+                }
+            }
+        }
+        float max = tabP[0].getSwimmingDepth();
+        for (Penguin p:tabP){
+            if (p!=null){
+
+                if (p.getSwimmingDepth()>max){
+                    max=p.getSwimmingDepth();
+                }
+            }
+        }
+        return max;
+
+    }
+
+    public String displayNumberOfAquaticsByType(){
+        int numDolphins = 0;
+        int numPenguins = 0;
+
+        for (Animal an:animals) {
+            if(an != null){
+                if (an instanceof Dolphin){
+                    numDolphins++;
+                }
+                if (an instanceof Penguin){
+                    numPenguins++;
+                }
+            }
+        }
+
+
+        String table = "------------------------\n";
+        table += String.format("| %-15s | %-15s |\n", "Number of Dolphins", "Number of Penguins");
+        table += String.format("| %-18s | %-18s |\n", numDolphins, numPenguins);
+        table += "------------------------\n";
+        return table;
+    }
+
 
     @Override
     public String toString() {
@@ -113,6 +170,14 @@ public class Zoo {
 
     public void setNbrAnimals(int nbrAnimals) {
         this.nbrAnimals = nbrAnimals;
+    }
+
+    public Aquatic[] getAquaticAnimals() {
+        return aquaticAnimals;
+    }
+
+    public void setAquaticAnimals(Aquatic[] aquaticAnimals) {
+        this.aquaticAnimals = aquaticAnimals;
     }
 }
 

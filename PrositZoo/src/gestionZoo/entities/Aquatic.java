@@ -1,6 +1,6 @@
 package gestionZoo.entities;
 
-public non-sealed class Aquatic extends Animal{
+public abstract non-sealed class Aquatic extends Animal{
     private String habitat;
 
     public Aquatic(){
@@ -23,8 +23,12 @@ public non-sealed class Aquatic extends Animal{
         return super.toString() + "habitat: " + habitat;
     }
 
-    public void swim(){
-        System.out.println("the aquatic animal is swimming");
+    public abstract void swim();
+
+    public boolean equals(Aquatic a1 , Aquatic a2){
+        return a1.getName().equals(a2.getName()) &&
+                a1.getAge() == a2.getAge() &&
+                a1.getHabitat().equals(a2.getHabitat());
     }
 
 }
