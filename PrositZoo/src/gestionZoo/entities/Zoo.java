@@ -4,7 +4,7 @@ public class Zoo {
 
     private Animal[] animals;
     private String name, city;
-    private final int nbrCages=25;
+    private final int nbrCages=10;
     private int nbrAnimals;
     private Aquatic[] aquaticAnimals = new Aquatic[10];
 
@@ -21,16 +21,17 @@ public class Zoo {
         System.out.println("Name: " + name + ", City: " + city + ", N° Cages/Animals: " + nbrCages);
     }
 
-    public boolean addAnimal(Animal animal) {
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
         if (searchAnimal(animal) != -1)
-            return false;
+            throw new ZooFullException("Animal already exists");
         if (nbrAnimals == nbrCages)
-            return false;
+            throw new ZooFullException("Zoo is full");
         if (isZooFull(nbrAnimals))
-            return false;
+            throw new ZooFullException("Zoo is full");
+        if (animal.getAge()<=0)
+            throw new InvalidAgeException("Age must be positive");
         animals[nbrAnimals] = animal;
         nbrAnimals++;
-        return true;
     }
 
     public boolean removeAnimal(Animal animal) {
