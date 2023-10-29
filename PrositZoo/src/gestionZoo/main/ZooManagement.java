@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class ZooManagement {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ZooFullException, InvalidAgeException {
         //PROSIT 2
         Animal lion = new Animal();
         lion.setName("Simba");
@@ -25,8 +25,6 @@ public class ZooManagement {
         System.out.println(myZoo);
         System.out.println(myZoo.toString());
 
-        System.out.println(myZoo.addAnimal(lion));
-        System.out.println(myZoo.addAnimal(dog));
 
         myZoo.displayAnimals();
 
@@ -63,9 +61,13 @@ public class ZooManagement {
         Animal aa = new Animal("Canine", "Snoopy", 2, true);
         Penguin pp = new Penguin("erloj", "zemrjezlk", 2, true, 8, 2);
         myZoo.addAnimal(aa);
+        System.out.println(myZoo.getNbrAnimals());
         myZoo.addAnimal(pp);
+        System.out.println(myZoo.getNbrAnimals());
         myZoo.addAnimal(p1);
+        System.out.println(myZoo.getNbrAnimals());
         myZoo.addAnimal(d1);
+        System.out.println(myZoo.getNbrAnimals());
         System.out.println(Arrays.toString(myZoo.getAnimals()));
 
         System.out.println( myZoo.maxPenguinSwimmingDepth());

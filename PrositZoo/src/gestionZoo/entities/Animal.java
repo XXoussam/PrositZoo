@@ -50,9 +50,10 @@ public sealed class Animal permits Aquatic, Terrestrial {
     }
 
     public void setAge(int age) {
-        if (age>0){
+        /*if (age>0){
             this.age = age;
-        }else System.out.println("Age must be positive");
+        }else System.out.println("Age must be positive");*/
+        this.age = age;
     }
 
     public boolean isMammal() {
