@@ -79,6 +79,11 @@ public class ZooManagement {
         Aquatic aq2 = new Dolphin("Aquatic", "A1", 2, true, "Atlantic",45);
         System.out.println(aq1.equals(aq1,aq2));
 
+        System.out.println("---------------------------------------------------------------------------");
+        Terrestrial t1 = new Terrestrial("Terrestrial", "T1", 2, true, 2);
+        t1.eatPlantAndMeet(Food.PLANT);
+        a1.eatMeat(Food.MEAT);
+
     }
 
 

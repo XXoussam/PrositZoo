@@ -1,6 +1,8 @@
 package gestionZoo.entities;
 
-public non-sealed class Terrestrial extends Animal{
+import Interface.Omnivore;
+
+public non-sealed class Terrestrial extends Animal implements Omnivore<Food> {
     private int nbrLegs;
 
     public Terrestrial(){
@@ -21,5 +23,10 @@ public non-sealed class Terrestrial extends Animal{
 
     public String toString(){
         return super.toString() + "nbrLegs: " + nbrLegs;
+    }
+
+    @Override
+    public void eatPlantAndMeet(Food food) {
+        System.out.println("I eat " + food);
     }
 }
