@@ -1,9 +1,16 @@
 package gestionZoo.entities;
 
-public abstract non-sealed class Aquatic extends Animal{
+import Interface.Carnivore;
+
+public abstract non-sealed class Aquatic extends Animal implements Carnivore<Food> {
     private String habitat;
 
     public Aquatic(){
+    }
+
+    @Override
+    public void eatMeat(Food food) {
+        System.out.println("I eat " + food);
     }
 
     public Aquatic(String family, String name, int age, boolean isMammal, String habitat){
